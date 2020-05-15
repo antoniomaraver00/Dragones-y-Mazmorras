@@ -1,9 +1,12 @@
 
 package Juego;
 
+import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import CrearPersonaje.*;
 
 /**
  *
@@ -13,6 +16,8 @@ import java.io.InputStreamReader;
 
 public class Jugadores2 {
 
+
+
 	public static void main(String[] args) throws IOException {
 
 		InputStreamReader isr = new InputStreamReader(System.in);
@@ -21,45 +26,43 @@ public class Jugadores2 {
 		String s;
 
 		int eleccion = 0;
-		do {
-			System.out.println("¿Desea jugar con personajes propios o con los personajes por defecto?");
-			System.out.println("1.- Personajes propios");
-			System.out.println("2.- Personajes por defecto");
-			System.out.println("0.- Menu");
 
-			try {
+		Menus.eleccioTipoPersonaje();
+		
+		try {
+			s = br.readLine();
+			eleccion = Integer.parseInt(s);
+		} catch (NumberFormatException nfe) {
+			System.out.println("Debes introducir los numeros asignados a las opciones en el menu");
+		}
 
-				s = br.readLine();
-				eleccion = -1;
-				eleccion = Integer.parseInt(s);
+		switch (eleccion) {
 
-			} catch (NumberFormatException nfe) {
+		case 1:
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						CrearPersonaje window = new CrearPersonaje();
+						window.getFrame().setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
 
-				System.out.println("Debes introducir los numeros asignados a las opciones en el menu");
+			break;
 
-			}
+		case 2:
 
-			switch (eleccion) {
+			break;
 
-			case 1:
+		case 0:
 
-				break;
+			break;
 
-			case 2:
-
-				break;
-
-			case 0:
-
-				break;
-
-			default:
-
-				System.out.println("Introduzca un numero valido");
-
-			}
-
-		} while (eleccion != 0);
+		default:
+			System.out.println("Introduzca un numero valido");
+		}
 	}
 
 }

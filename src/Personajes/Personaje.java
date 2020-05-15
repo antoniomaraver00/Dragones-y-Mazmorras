@@ -1,5 +1,7 @@
 package Personajes;
 
+import java.util.Arrays;
+
 import Armas.Arma;
 
 /**
@@ -9,17 +11,17 @@ import Armas.Arma;
  */
 public class Personaje {
 
-	String nombre;
-	String aptitudes[];
-	String raza;
-	int nivel;
-	int iniciativa;
-	int armadura;
-	int velocidad;
-	Posicion posicion;
-	Arma arma1, arma2;
+	private String nombre;
+	private String aptitudes[];
+	private String raza;
+	private int nivel;
+	private int iniciativa;
+	private int armadura;
+	private int velocidad;
+	private Posicion posicion = new Posicion(0, 0);
+	private Arma arma1, arma2;
 
-	Personaje() {
+	public Personaje() {
 	}
 
 	public Personaje(String nombre, int armadura, int velocidad, Arma arma1, Arma arma2, Posicion posicion,
@@ -79,5 +81,92 @@ public class Personaje {
 
 	void atacar(Personaje p) {
 
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String[] getAptitudes() {
+		return aptitudes;
+	}
+
+	public void setAptitudes(String[] aptitudes) {
+		this.aptitudes = aptitudes;
+	}
+
+	public String getRaza() {
+		return raza;
+	}
+
+	public void setRaza(String raza) {
+		this.raza = raza;
+	}
+
+	public int getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
+	}
+
+	public int getIniciativa() {
+		return iniciativa;
+	}
+
+	public void setIniciativa(int iniciativa) {
+		this.iniciativa = iniciativa;
+	}
+
+	public int getArmadura() {
+		return armadura;
+	}
+
+	public void setArmadura(int armadura) {
+		this.armadura = armadura;
+	}
+
+	public int getVelocidad() {
+		return velocidad;
+	}
+
+	public void setVelocidad(int velocidad) {
+		this.velocidad = velocidad;
+	}
+
+	public Posicion getPosicion() {
+		return posicion;
+	}
+
+	public void setPosicion(Posicion posicion) {
+		this.posicion = posicion;
+	}
+
+	public Arma getArma1() {
+		return arma1;
+	}
+
+	public void setArma1(Arma arma1) {
+		this.arma1 = arma1;
+	}
+
+	public Arma getArma2() {
+		return arma2;
+	}
+
+	public void setArma2(Arma arma2) {
+		this.arma2 = arma2;
+	}
+
+	@Override
+	public String toString() {
+		return "Personaje [nombre=" + nombre + ", aptitudes=" + Arrays.toString(aptitudes) + ", raza=" + raza
+				+ ", nivel=" + nivel + ", iniciativa=" + iniciativa + ", armadura=" + armadura + ", velocidad="
+				+ velocidad + ", posicion=" + posicion.toString() + ", arma1=" + arma1 + ", arma2=" + arma2 + "]";
 	}
 }

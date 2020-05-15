@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import CrearPersonaje.Menus;
+
 /**
  *
  * @author JaviCasti
  * @author Javier Delgado Rodriguez
  */
-public class Menu {
+public class Game {
 
 	public static void main(String[] args) throws IOException {
 
@@ -23,29 +25,19 @@ public class Menu {
 
 			eleccion = -1;
 
-			System.out.println("=====================================================");
-			System.out.println("================DUNGEONS & DRAGONS===================");
-			System.out.println("=====================================================");
-			System.out.println("1.- Jugar");
-			System.out.println("2.- Ayuda");
-			System.out.println("0.- Salir");
-
+			Menus.inicio();
+			
 			try {
-
 				s = br.readLine();
 				eleccion = -1;
 				eleccion = Integer.parseInt(s);
-
 			} catch (NumberFormatException nfe) {
-
 				System.out.println("Debes introducir los numeros asignados a las opciones en el menu");
-
 			}
 
 			switch (eleccion) {
 
 			case 1:
-
 				Jugadores2.main(args);
 				break;
 

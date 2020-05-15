@@ -13,13 +13,17 @@ public class Guerrero extends Personaje {
 	int destreza;
 
 	public Guerrero() {
-		super();
 	}
 
 	public Guerrero(String nombre, int armadura, int velocidad, Arma arma1, Arma arma2, Posicion posicion,
-			String aptitudes[]) {
+			String[] aptitudes, int fuerza, int destreza) {
 		super(nombre, armadura, velocidad, arma1, arma2, posicion, aptitudes);
-
+		this.fuerza = fuerza;
+		this.destreza = destreza;
 	}
 
+	@Override
+	public String toString() {
+		return "Guerrero [fuerza=" + fuerza + ", destreza=" + destreza + ", toString()=" + super.toString() + "]";
+	}
 }
